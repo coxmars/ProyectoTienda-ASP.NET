@@ -1,0 +1,60 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/register.css" />
+
+<h2 class="mb-3">Iniciar sesión</h2>
+
+@if (ViewData.Keys.Contains("mensaje"))
+{
+    <p style="color: red;">
+        @ViewData["mensaje"]
+    </p>
+}
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div style="width: 20rem;" class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" autocomplete="off" class="form-control" placeholder="Email"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div style="width: 20rem;" class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" placeholder="Password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" asp-for="RememberMe" />
+                <label class="form-check-label" asp-for="RememberMe"></label>
+            </div>
+
+            <button class="btn-primary btn form-control">Iniciar sesión</button>
+            <hr />
+            <a asp-action="ExternalLogin" asp-route-proveedor="Google">
+                <div class="caja__registro">
+                    <img class="icono" src="~/images/google.png" alt="">&nbsp;&nbsp;<p class="continuar">Continuar con Google</p>
+                </div>
+            </a>
+            <a asp-action="ExternalLogin" asp-route-proveedor="Microsoft">
+                <div class="caja__registro">
+                    <img class="icono" src="~/images/microsoft.png" alt="">&nbsp;&nbsp;<p class="continuar">Continuar con Microsoft</p>
+                </div>
+            </a>
+            <p class="mt-4 text-center">¿No tiene cuenta? <a asp-action="register">Crear cuenta</a></p>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

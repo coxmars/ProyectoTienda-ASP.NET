@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer localizer;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@localizer["Bienvenido"]</h1>
+    <p>@localizer["Aprende más"]</p>
+</div>
+
+<div>
+    <h3>
+        @ViewBag.Greeting, Marco
+    </h3>
+</div>
+
+<button onclick="showError()">
+    Show message error
+</button>
+
+@section Scripts{
+    <script src="~/js/utilities.js"></script>
+}

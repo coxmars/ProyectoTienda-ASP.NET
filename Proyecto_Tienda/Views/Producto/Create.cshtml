@@ -1,0 +1,56 @@
+﻿@model Proyecto_Tienda.Entities.Producto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Lista productos</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Crear producto</li>
+    </ol>
+</nav>
+
+<h3 class="mb-3">Crear producto</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-2">
+                <label asp-for="Nombre" class="control-label mb-2"></label>
+                <input asp-for="Nombre" class="form-control" placeholder="Nombre"/>
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Descripcion" class="control-label mb-2"></label>
+                <input asp-for="Descripcion" class="form-control" placeholder="Descripción" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Precio" class="control-label mb-2"></label>
+                <input asp-for="Precio" class="form-control" placeholder="Precio" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Cantidad" class="control-label mb-2"></label>
+                <input asp-for="Cantidad" class="form-control" placeholder="Cantidad" />
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="FechaCreacion" class="control-label mb-2"></label>
+                <input asp-for="FechaCreacion" class="form-control" placeholder="Fecha Creación" />
+                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

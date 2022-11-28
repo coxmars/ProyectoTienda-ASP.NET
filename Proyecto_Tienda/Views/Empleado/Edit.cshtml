@@ -1,0 +1,56 @@
+﻿@model Proyecto_Tienda.Entities.Empleado
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Lista empleados</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Editar empleado</li>
+    </ol>
+</nav>
+
+<h3 class="mb-3">Editar Empleado</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group mb-2">
+                <label asp-for="Nombre" class="control-label mb-2"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Puesto" class="control-label mb-2"></label>
+                <input asp-for="Puesto" class="form-control" />
+                <span asp-validation-for="Puesto" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Correo" class="control-label mb-2"></label>
+                <input asp-for="Correo" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Telefono" class="control-label mb-2"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="FechaCreacion" class="control-label mb-2"></label>
+                <input asp-for="FechaCreacion" class="form-control" />
+                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

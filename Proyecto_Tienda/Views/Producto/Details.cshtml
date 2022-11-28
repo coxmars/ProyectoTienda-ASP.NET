@@ -1,0 +1,52 @@
+﻿@model Proyecto_Tienda.Entities.Producto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Lista productos</a></li>
+        <li class="breadcrumb-item"><a asp-action="Edit" asp-route-id="@Model?.Id">Editar producto</a> </li>
+        <li class="breadcrumb-item active" aria-current="page">Detalle producto</li>
+    </ol>
+</nav>
+
+<h3 class="mb-3">Detalle Producto</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nombre:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            Descripción: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            Precio:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+        <dt class = "col-sm-2">
+            Cantidad: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+        <dt class = "col-sm-2">
+            Fecha Creación: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+    </dl>
+</div>
+
